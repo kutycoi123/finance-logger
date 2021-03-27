@@ -1,6 +1,6 @@
 class UserStocksController < ApplicationController
   def create
-    stock = Stock.where(ticker: params[:ticker])
+    stock = Stock.where(ticker: params[:ticker]).first
     if stock.blank?
       stock = Stock.new_lookup(params[:ticker])
       stock.save
